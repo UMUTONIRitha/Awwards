@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Charmonman%7CDancing+Script%7CKodchasan%7CSpirax%7CAbril+Fatface"
+  rel="stylesheet">
+<header>
+  
+</header>
+
+<body style="font-family: 'Playfair Display', serif;">
+  <div class="container" style="margin-top:3%">
+    <div class="row">
+      <div class="col-md-6">
+        {% for image in ones_project %}
+        <img src="{{image.project_image.url}}" width="100%" height="450vh">
+        <p class="title" style="font-family: 'Playfair Display', serif;">{{image.title}}</p>
+     
+      </div>
+      <div class="col-md-6">
+        <div class="row text-center">
+          <div class="col-md-3">
+            <h3>Content </h3>
+            <hr class="bg-default"><br>
+            <h4>{{content}}.0</h4>
+          </div><br>
+          <div class="col-md-3">
+            <h3>Usability </h3>
+            <hr class="bg-default"><br>
+            <h4>{{usability}}.0</h4>
+          </div><br>
+          <div class="col-md-3">
+            <h3>Design</h3>
+            <hr class="bg-default"><br>
+            <h4>{{design}}.0</h4>
+          </div>
+        </div>
+        <a href="{{image.link}}" class="btn btn-pink btn-md pull-right" target="_blank"><i
+            class="far fa-chevron-double-right"></i></a>
+        <button class="btn btn-outline-info text-center" type="button" data-target="#votesform" data-toggle="modal">Rate
+          Us</button>
+        <hr>
+
+        <div class="visitlink">
+          <button class="btn btn-outline-success" style="border-radius:25px;"><a href="{{image.link}}" target="_blank"
+              style="color: black;">visite site</a></button>
+        </div>
+        <!-- not typed -->
+        <div class="modal fade" id="votesform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold" id="vote">Vote</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body mx-3">
+                <div class="form animated slideInDown">
+                  <form action="{% url 'oneproject' image.id %}" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button class="btn btn-outline-info modal-footer d-flex justify-content-center" type="submit">Submit
+                      <i class="fas fa-paper-plane-o ml-1"></i> </button>
+                  </form>
+                </div>
+                
+              </div>
+             
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+        {% endfor %}
+        <div class="card comments">
+          <div class="card-header">
+            <h4> Total Numbers of Votes: {{all_ratings|length}} </h4>
+          </div>
+          <div class="list-group">
+            <ul class="list-group">
+              {%if all_ratings%}
+              <table id='comm' class="table">
+                <th>Voters</th>
+                <th>Ratings</th>
+                {%for votes in all_ratings%}<tr>
+                  <td> <img src="{{votes.user.profile.profile_picture.url}}" alt="" width='30px' height="30px">
+                    {{votes.user}}</td>
+                  <td>
+                    <div class="design">
+                      <a href="" class="scores">{{votes.design}}</a>
+                      <a href="">{{votes.usability}}</a>
+                      <a class='b' href="">{{votes.content}}</a>
+                    </div>
+                  </td>
+                  {%endfor%}
+              </table>
+              {%else%}
+              <li class="list-group-item alert alert-info">No votes Available</li>
+              {%endif%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<style>
+  .header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-family: 'Grand Hotel', cursive;
+  }
+
+  .visitlink {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+</style>
+{% endblock %}
