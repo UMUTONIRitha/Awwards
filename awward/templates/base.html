@@ -14,17 +14,20 @@
   {% endif %}
   {% block styles %}
     {% bootstrap_css %}
-    
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lancelot&display=swap" rel="stylesheet">
+
+     <script src="https://kit.fontawesome.com/83d474e45f.js" crossorigin="anonymous"></script>
   {% endblock %}
 </head>
-<body>
+<body style="background-color: gainsboro;">
     {% include "navbar.html" %}
     {% block content %}
      {%endblock%}
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       
      {% bootstrap_javascript %}
     {% endblock %}
 </body>
