@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Charmonman%7CDancing+Script%7CKodchasan%7CSpirax%7CAbril+Fatface"
   rel="stylesheet">
 <header>
-  
+
 </header>
 
 <body style="font-family: 'Playfair Display', serif;">
@@ -14,9 +14,13 @@
       <div class="col-md-6">
         {% for image in ones_project %}
         <img src="{{image.project_image.url}}" width="100%" height="450vh">
-        <p class="title" style="font-family: 'Playfair Display', serif;">{{image.title}}</p>
-     
-      </div>
+        <p>{{image.title}}</p>
+         <div>
+          <a href="{%url 'comment' image.id%}" class="btn btn-default"> {{image.comments_set.all|length}}Add comment</a>
+          <a href="{% url 'view' image.id%}" class="btn btn-default">All Comments</a>
+        </div> 
+        </div>
+
       <div class="col-md-6">
         <div class="row text-center">
           <div class="col-md-3">
@@ -65,14 +69,17 @@
                       <i class="fas fa-paper-plane-o ml-1"></i> </button>
                   </form>
                 </div>
-                
+
               </div>
-             
+
             </div>
           </div>
         </div>
-        <!-- </div> -->
+
         {% endfor %}
+
+
+
         <div class="card comments">
           <div class="card-header">
             <h4> Total Numbers of Votes: {{all_ratings|length}} </h4>
@@ -103,30 +110,8 @@
         </div>
       </div>
     </div>
+
   </div>
 </body>
-<style>
-  .header {
-    position: relative;
-    width: 100%;
-    height: auto;
-    opacity: 0.9;
-  }
 
-  .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 50px;
-    font-family: 'Grand Hotel', cursive;
-  }
-
-  .visitlink {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-  }
-</style>
 {% endblock %}
