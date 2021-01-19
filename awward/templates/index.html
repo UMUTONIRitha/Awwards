@@ -7,32 +7,32 @@
 <div class="jumbotron"
     style="background-image:url('https://img.freepik.com/free-vector/luxury-award-nomination-background_165286-124.jpg?size=626&ext=jpg') ;background-repeat:no-repeat;background-position:center center;background-size:cover;height:100vh;margin-top:-1;color:black;">
 
-    <h1 class="text-center" style="color:khaki;margin-top:6%;">PROJECTS</h1>
+    <h1 class="text-center" style="color:khaki;margin-top:6%;font-family: 'Lancelot', cursive;">PROJECTS</h1>
 
 </div>
 
 
 
 <div class="container" style="padding-top: 3%;">
-    <h2 class="text-center" style="margin-bottom: 3%;">Submitted Projects</h2>
+    <h2 class="text-center" style="margin-bottom: 3%;font-family: 'Lancelot', cursive;
+    ">Submitted Projects</h2>
     <div class="row">
-        {% for pro in all_projects %}
+        {% for proj in all_projects %}
         <div class="col-md-4">
             <div class="card mb-4 shadow-lg">
-                <a href="{% url 'oneproject' pro.id %}">
-                    <img src="{{pro.project_image.url}}" width="100%">
+                <a href="{% url 'oneproject' proj.id %}">
+                    <img src="{{proj.project_image.url}}" width="100%">
                 </a>
                 <div class="card-body">
                     
-                        <span>{{pro.title}} </span>
-                        <span style="margin-left: 30%;"><small>{{pro.date|date:"F d,Y"}}</small> </span><br>
+                        <span style="font-family: 'Rancho', cursive;">{{proj.title}} </span>
+                        <span style="margin-left: 30%;font-family: 'Rancho', cursive;"><small>{{proj.date|date:"F d,Y"}}</small> </span><br>
 
                     <div class="foot">
-                     <small>{{pro.description}}</small><br><br>
-                        <span><small style="text-transform:capitalize;">{{pro.user}}</small> </span>
-                    
+                     <small style="font-family: 'Old Standard TT', serif;">{{proj.description}}</small><br><br>
+                        <span><small style="text-transform:capitalize;font-family: 'Rancho', cursive;">{{proj.user}}</small> </span>
+                        <button class="btn btn-outline-default" style=" margin-left:30%;font-family: 'Rancho', cursive;"><a href="{{proj.link}}" target="_blank" style="color: black;">visite site</a></button>
                     </div>
-
                     
                 </div>
                
