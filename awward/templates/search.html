@@ -3,11 +3,11 @@
 <div class="container">
   <div class="row" style="margin-top:4%">
     {% if project %}
-    {% for proj in project %}
+    {% for proname in project %}
     <div class="col-md-4">
       <h3>{{proj.title}}</h3>
-      <img src="{{proj.project_image.url}}" width="400" height="300" class="img-responsive" alt="Image">
-      <p style="margin-top: 5%">{{proj.description}}</p>
+      <img src="{{proname.project_image.url}}" width="400" height="300" class="img-responsive" alt="Image">
+      <p style="margin-top: 5%">{{proname.description}}</p>
     </div>
     {% endfor %}
     {% endif %}
