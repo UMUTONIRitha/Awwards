@@ -1,4 +1,3 @@
-
 {%extends 'base.html'%}
 {% block content %}
 {{block.super}}
@@ -12,13 +11,15 @@
     <div class="row">
         <div class="col-md-1">
             <div class="profile" style="margin-top: -7%">
-                    <img src="{{my_profile.profile_picture.url}}" class="img-responsive pic" style="vertical-align: middle;height:150px;width: 150px;border-radius:50px">
+                <img src="{{my_profile.profile_picture.url}}" class="img-responsive pic"
+                    style="vertical-align: middle;height:150px;width: 150px;border-radius:50px">
             </div>
         </div>
         <div class="col-md-11">
-        <div class="imagecaption" style="margin-left: 15%">
-                <h5 style="text-transform: capitalize;">{{my_profile.user}}</h5>
-                <h5>{{my_profile.bio}}</h5>
+            <div class="imagecaption" style="margin-left: 15%">
+                <h5 style="text-transform: capitalize;">Name: {{my_profile.user}}</h5>
+                <h5>Bio: {{my_profile.bio}}</h5>
+                <h5>contact: {{my_profile.contact}}</h5>
             </div>
         </div>
     </div>
@@ -26,11 +27,12 @@
 </div>
 <div class="container">
     <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
-    {% for user in my_projects %}
-        <div class="col-md-4" style="margin-right:3%;margin-top: 3%;">   
-        <img src="{{user.project_image.url}}" height="200" height="200" class="img-responsive" alt="Image">
+        {% for user in my_projects %}
+        <div class="col-md-4">
+            <img src="{{user.project_image.url}}" height="150px" height="150px" class="img-responsive" alt="Image">
         </div>
-    {% endfor %}
-</div> 
+        {% endfor %}
+        <div>
+  
 </div>
-{% endblock %}
+    {% endblock %}
