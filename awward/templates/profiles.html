@@ -16,6 +16,7 @@
             </div>
         </div>
         <div class="col-md-11">
+            
             <div class="imagecaption" style="margin-left: 15%">
                 <h5 style="text-transform: capitalize;">Name: {{my_profile.user}}</h5>
                 <h5>Bio: {{my_profile.bio}}</h5>
@@ -28,7 +29,7 @@
 <div class="container">
     <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
         {% for user in my_projects %}
-        <div class="col-md-4">
+        <div class="col-md-4"style="margin-top: 3%;">
             <img src="{{user.project_image.url}}" height="150px" height="150px" class="img-responsive" alt="Image">
         </div>
         {% endfor %}
