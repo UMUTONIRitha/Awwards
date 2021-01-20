@@ -49,7 +49,7 @@ def my_profile(request):
     current_user = request.user
     my_projects = Project.objects.filter(user = current_user)
     my_profile = Profile.objects.filter(user = current_user).first
-    return render(request, 'profiles.html', {"my+projects": my_projects, "my_profile":my_profile})
+    return render(request, 'profiles.html', {"my_projects": my_projects, "my_profile":my_profile})
 
 @login_required(login_url='accounts/login/')
 def one_project(request, id):
@@ -88,7 +88,7 @@ def one_project(request, id):
             average_design = 0.0
             average_content = 0.0
     return render(request,'project.html',{"ones_project":ones_project,"all_ratings":all_ratings,"form":form,"usability":average_usability,"design":average_design,"content":average_content})
-# @login_required(login_url='/accounts/login/')
+
 
 def search_project(request):
     if 'project_name' in request.GET and request.GET["project_name"]:
