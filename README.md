@@ -36,10 +36,9 @@
 * View projects overall score
 * View my profile page
 
+## Live link 
 
-<!-- ## Live link -->
-
-<!-- [Here is the Link: My-IG](https://rithainsta.herokuapp.com/"My-IG") -->
+[Here is the Link: Awward](https://rithawward.herokuapp.com/"awward")
 
 ## Contact Information
 
