@@ -51,7 +51,7 @@ def my_profile(request):
     my_profile = Profile.objects.filter(user = current_user).first
     return render(request, 'profiles.html', {"my_projects": my_projects, "my_profile":my_profile})
 
-@login_required(login_url='accounts/login/')
+@login_required(login_url='/accounts/login/')
 def one_project(request, id):
     ones_project = Project.objects.filter(id = id)
     all_ratings = Rating.objects.filter(project = id)
