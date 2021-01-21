@@ -112,7 +112,7 @@ def add_comment(request, proj_id):
             comment.posted_by = profiless
             comment.commented_project = project_item
             comment.save()
-            return redirect('index')
+            return redirect('oneproject',proj_id)
     else:
         form = CommentForm()
     return render(request, 'comment_form.html', {"form": form, "proj_id": proj_id})

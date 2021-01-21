@@ -8,7 +8,7 @@ import datetime as dt
 
 class ProfileTestClass(TestCase):
     '''
-    images test method
+    profiles test method
     '''
     def setUp(self):
         self.user = User.objects.create(id =1,username='riri')
@@ -20,7 +20,7 @@ class ProfileTestClass(TestCase):
 
     def test_save_method(self):
         '''
-        test image by save
+        test profile by save
         '''
         self.profile.save_profile()
         profile=Profile.objects.all()
@@ -28,7 +28,7 @@ class ProfileTestClass(TestCase):
 
     def test_delete_method(self):
         '''
-        test of delete image
+        test of delete profile
         '''
         self.profile.save_profile()
         profile=Profile.delete_profile()
